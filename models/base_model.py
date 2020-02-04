@@ -13,12 +13,17 @@ class BaseModel:
     Updated-at - datetime assigned with current datetime when updated
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Constructor for Public Instance Attributes """
 
-        self.id = str(uid())
-        self.created_at = dt.now()
-        self.updated_at = dt.now()
+        if kwargs and kwargs is not []:
+            self.id = kwargs["id"]
+            self.created_at = kwargs["created_at"]
+            self.updated_at = self.created_at
+        else:
+            self.id = str(uid())
+            self.created_at = dt.now()
+            self.updated_at = dt.now()
 
     def __str__(self):
         """Prints class name, id, and dict"""
