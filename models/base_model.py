@@ -16,9 +16,9 @@ class BaseModel:
     def __init__(self):
         """Constructor for Public Instance Attributes """
 
-        self.id = uid
-        self.created_at = dt
-        self.updated_at = dt
+        self.id = str(uid())
+        self.created_at = dt.now()
+        self.updated_at = dt.now()
 
     def __str__(self):
         """Prints class name, id, and dict"""
@@ -26,10 +26,16 @@ class BaseModel:
         return ("[{}] ({}) {}".format(type(self).__name__,
                 self.id, self.__dict__))
 
-    @classmethod
     def save(self):
         """Updates the public instance attribute 'updated_at with dt'"""
 
-    @classmethod
+        self.updated_at = dt.now()
+
     def to_dict(self):
         """Returns a dict containing all keys/values of __dict__"""
+
+        new_dict = dict(self.__dict__)
+        new_dict['__class__'] = type(self).__name__
+        new_dict['created_at'] = self.created_at.isoformat()
+        new_dict['updated_at'] = self.updated_at.isoformat()
+        return new_dict
