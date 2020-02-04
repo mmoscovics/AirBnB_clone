@@ -18,8 +18,10 @@ class BaseModel:
 
         if kwargs and kwargs is not []:
             self.id = kwargs["id"]
-            self.created_at = kwargs["created_at"]
-            self.updated_at = self.created_at
+            self.created_at = dt.strptime(kwargs["created_at"],
+                                          "%Y-%m-%dT%H:%M:%S.%f")
+            self.updated_at = dt.strptime(kwargs["updated_at"],
+                                          "%Y-%m-%dT%H:%M:%S.%f")
         else:
             self.id = str(uid())
             self.created_at = dt.now()
