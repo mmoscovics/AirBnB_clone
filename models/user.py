@@ -12,10 +12,7 @@ class User(BaseModel):
     last_name: string - empty string
     """
 
-    def __init__(self):
-        """ Constructor for Public Instance Attributes """
-
-        self.email = email
-        self.password = password
-        self.first_name = first_name
-        self.last_name = last_name
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""

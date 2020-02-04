@@ -9,6 +9,4 @@ class State(BaseModel):
     name: string - empty string
     """
 
-    def __init__(self):
-        """ Constructor for Public Class Attribute """
-        self.name = name
+    name = ""

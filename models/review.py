@@ -11,8 +11,6 @@ class Review(BaseModel):
     text: string - empty string
     """
 
-    def __init__(self):
-        """ Constructor for Public Class Attributes """
-        self.place_id = place_id
-        self.user_id = user_id
-        self.text = text
+    place_id = ""
+    user_id = ""
+    text = ""

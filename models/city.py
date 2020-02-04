@@ -10,7 +10,5 @@ class City(BaseModel):
     name: string - empty string
     """
 
-    def __init__(self):
-        """ Constructor for Public Class Attribute """
-        self.state_id = state_id
-        self.name = name
+    state_id = ""
+    name = ""
