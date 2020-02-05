@@ -124,6 +124,7 @@ class HBNBCommand(cmd.Cmd):
         By adding or updating attribute and saves into JSON file
         """
 
+        stor_all = storage.all()
         if not arg:
             print("** class name missing **")
             return
@@ -141,8 +142,10 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
         else:
-            obj = arg[0] + "." + arg[1]
-            type(obj.update({arg[2]: arg[3]}))
+            temp = args[3]
+            temp = temp[1:-1]
+            obj = args[0] + "." + args[1]
+            stor_all[obj].__dict__.update({args[2]: temp})
             storage.save()
             return
 
