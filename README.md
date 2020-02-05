@@ -17,54 +17,58 @@
 	`./console`
 >> Once running, the prompt will appear `(HBNB)`, and you can enter your command. With this command line interpreter, the user can create a new User, Place, State, or City, as well as retrieve an object from a file. The user may also update any of these attributes or destroy them.
 
-#### Examples of using the console in interactive mode:
+## Examples of using the console in interactive mode:
 
->>> `$ ./console.py`
->>> `(HBNB) help`
+```
+{
+$ ./console.py 
+(hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
 EOF  all  create  destroy  help  quit  show  update
-(hbnb)
 
->>> `$ ./console.py`
+(hbnb) create
+** class name missing **
 
->>> `(HBNB) create BaseModel
-
+(hbnb) create BaseModel
 138486be-3e76-43c8-b4f0-59f8c4888e87
 
-(hbnb)
-`
+(hbnb) show
+** class name missing **
 
->>> `$ ./console.py`
+(hbnb) create User
+e16d4b4d-9320-408c-90f4-0752be7fa65d
 
->>> `(HBNB) all`
-
+(hbnb) all
 {'BaseModel.e12c8168-bad8-4ac1-b685-f8bcc1a57bed': <models.base_model.BaseModel object at 0x7f6d0780c780>, 'BaseModel.14dd894f-da3b-4e40-84a0-03b558ff80f1': <models.base_model.BaseModel object at 0x7f6d0847e470>, 'User.e1839253-151c-4bdb-80ad-7781cfec0cac': <models.user.User object at 0x7f6d084a8208>, 'User.7f69c2a7-fd1c-40bf-a948-b30d186e26be': <models.user.User object at 0x7f6d0847e438>, 'User.e16d4b4d-9320-408c-90f4-0752be7fa65d': <models.user.User object at 0x7f6d0847e358>, 'BaseModel.138486be-3e76-43c8-b4f0-59f8c4888e87': <models.base_model.BaseModel object at 0x7f6d089976a0>}
 
 (hbnb)
+}
+```
 
-#### Examples of using the console in non-interactive mode:
+## Examples of using the console in non-interactive mode:
 
->>> `$ echo "help" | ./console.py`
->>> `(hbnb)`
-
+```
+{
+$ echo "help" | ./console.py
+(hbnb) 
 Documented commands (type help <topic>):
-
 ========================================
+EOF  all  create  destroy  help  quit  show  update
 
->>> EOF  help  quit
+(hbnb) 
 
->>> (hbnb)
+$ echo show | ./console.py
+(hbnb) ** class name missing **
+(hbnb) 
 
+$ echo all | ./console.py
+(hbnb) {'BaseModel.14dd894f-da3b-4e40-84a0-03b558ff80f1': <models.base_model.BaseModel object at 0x7f49b4f29e80>, 'User.7f69c2a7-fd1c-40bf-a948-b30d186e26be': <models.user.User object at 0x7f49b42ba7b8>, 'User.e1839253-151c-4bdb-80ad-7781cfec0cac': <models.user.User object at 0x7f49b42efc18>, 'BaseModel.138486be-3e76-43c8-b4f0-59f8c4888e87': <models.base_model.BaseModel object at 0x7f49b42efb38>, 'User.e16d4b4d-9320-408c-90f4-0752be7fa65d': <models.user.User object at 0x7f49b42efb00>, 'BaseModel.e12c8168-bad8-4ac1-b685-f8bcc1a57bed': <models.base_model.BaseModel object at 0x7f49b42efd30>}
+(hbnb)
 $
-
-$ cat test_help
-
-help
-
-$
-
+}
+```
 
 ###  Authors
 [Mitchell Moscovics](https://github.com/mmoscovics) & [Kati Fredlund](https://github.com/KFredlund)
