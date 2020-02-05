@@ -16,3 +16,9 @@ class TestCity(TestBaseModel):
         super().__init__(*args, **kwargs)
         self._class = City
         self._name = "City"
+
+    def test__class_attrs(self):
+        """ Test for attributes """
+
+        self.assertIsInstance(self._class.state_id, str)
+        self.assertIsInstance(self._class.name, str)

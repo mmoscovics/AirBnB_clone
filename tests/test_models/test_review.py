@@ -16,3 +16,10 @@ class TestReview(TestBaseModel):
         super().__init__(*args, **kwargs)
         self._class = Review
         self._name = "Review"
+
+    def test__class_attrs(self):
+        """ Test for attributes """
+
+        self.assertIsInstance(self._class.place_id, str)
+        self.assertIsInstance(self._class.user_id, str)
+        self.assertIsInstance(self._class.text, str)
