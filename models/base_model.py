@@ -2,7 +2,6 @@
 """ Defines all common attributes/methods for other classes. """
 from datetime import datetime as dt
 from uuid import uuid4 as uid
-from models import storage
 
 
 class BaseModel:
@@ -14,6 +13,8 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         """ Constructor for Public Instance Attributes """
+        from models import storage
+
         if kwargs and kwargs is not []:
             self.id = kwargs["id"]
             self.created_at = dt.strptime(kwargs["created_at"],
@@ -32,6 +33,8 @@ class BaseModel:
 
     def save(self):
         """ Updates the public instance attribute 'updated_at with dt """
+        from models import storage
+
         self.updated_at = dt.now()
         storage.save()
 
