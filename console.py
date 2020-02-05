@@ -149,7 +149,7 @@ class HBNBCommand(cmd.Cmd):
         """
 
         if arg:
-            if not arg in class_names:
+            if arg not in class_names:
                 print("** class doesn't exist **")
                 return
             else:
