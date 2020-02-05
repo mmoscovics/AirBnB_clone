@@ -6,13 +6,22 @@ from models.engine.file_storage import FileStorage
 import os
 import json
 
+
 class TestFileStorage(unittest.TestCase):
     """ FileStorage Tests """
 
+    def tearDown(self):
+        """Removes file after running save"""
+        try:
+            os.remove("file.JSON")
+        except Exception:
+            pass
+
     def test_attributes(self):
         """ Tests class attributes """
-
-        pass
+        base = self._class()
+        self.assertIsInstance(base.__file_path, str)
+        self.assertIsInstance(base.__objects, dict)
 
     def test_all(self):
         """ Tests all method """
