@@ -1,4 +1,4 @@
-# HBNB - An AirBnB Clone project
+# HBNB - An AirBnB Clone project :love_hotel:
 
 ## Description
 
@@ -7,7 +7,7 @@
 >> Second step, to create a flow of serialization/deserialization:
 `Instance<->Dictionary<->JSON string,<->file`
 >> Third step, to create all classes used for AirBnB that inherit from the parent class
->> Fourth step, to create teh first abstracted storage engine of the project
+>> Fourth step, to create the first abstracted storage engine of the project
 >> Final step, to create all unittests to validate all classes and storage engine
 
 ### What is a command interpreter?
@@ -16,6 +16,27 @@
 >> To start the command interpreter, first clone the repo to your local machine, and run the console:
 	`./console`
 >> Once running, the prompt will appear `(HBNB)`, and you can enter your command. With this command line interpreter, the user can create a new User, Place, State, or City, as well as retrieve an object from a file. The user may also update any of these attributes or destroy them.
+## Project Scope
+
+With HBnB, the user can create Users, Places, States, Cities, and Reviews, as well as update each class with attributes such as name, first_name, last_name, email, and password. Below is a table with all functionality of the console:
+
+| Command | Description |
+| ------------- | -------------------------------------------------- |
+| create | creates a new instance of a class |
+| show | shows instance of a specified class or all class instances |
+| destroy | deletes an instance based on class name and id |
+| all | prints all string representations of all instances |
+| update | updates an instance of a class ie email attribute of a User |
+
+## Available Classes and associated attributes
+
+| Class | Attributes  |
+| ------------- | -------------------------------------------------- |
+| User | email, password, first_name, last_name  |
+| State | name |
+| City | state_id, name |
+| Amenity | name |
+| Place | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids || Review | place_id, user_id, text |
 
 ## Examples of using the console in interactive mode:
 
