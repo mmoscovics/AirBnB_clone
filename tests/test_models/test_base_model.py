@@ -45,6 +45,25 @@ class TestBaseModel(unittest.TestCase):
         base.updated_at = dt.now
         self.assertNotEqual(now, base.updated_at)
 
+
+#    def test__class_attrs(self):
+#        """ Test for attributes """
+
+#        self.assertIsInstance(self._class.state_id, str)
+#        self.assertIsInstance(self._class.city_id, str)
+#        self.assertIsInstance(self._class.user_id, str)
+#        self.assertIsInstance(self._class.description, str)
+#        self.assertIsInstance(self._class.number_rooms, int)
+#        self.assertIsInstance(self._class.number_bathrooms, int)
+#        self.assertIsInstance(self._class.max_guest, int
+#        self.assertIsInstance(self._class.price_by_night, int)
+#        self.assertIsInstance(self._class.latitude, float)
+#        self.assertIsInstance(self._class.longitude, float)
+#        self.assertIsInstance(self._class.amenity_ids, str)
+#        self.assertIsInstance(self._class.place_id, str)
+#        self.assertIsInstance(self._class.text, str)
+
+
     def test_str(self):
         """ Tests __str__ """
 

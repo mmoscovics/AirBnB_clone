@@ -13,6 +13,6 @@ class TestPlace(TestBaseModel):
     def __init__(self, *args, **kwargs):
         """ Constructor attributes and objects to test """
 
-        super()__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._class = Place
         self._name = "Place"

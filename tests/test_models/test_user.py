@@ -14,12 +14,12 @@ class TestUser(TestBaseModel):
     def __init__(self, *args, **kwargs):
         """ Constructor attributes and objects to test """
 
-        super()__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self._class = User
         self._name = "User"
 
     def test_attrs(self):
-    """ Test for attributes """
+        """ Test for attributes """
 
         self.assertIsInstance(self._class.email, str)
         self.assertIsInstance(self._class.password, str)
