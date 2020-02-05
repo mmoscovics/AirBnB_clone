@@ -36,7 +36,8 @@ With HBnB, the user can create Users, Places, States, Cities, and Reviews, as we
 | State | name |
 | City | state_id, name |
 | Amenity | name |
-| Place | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids || Review | place_id, user_id, text |
+| Place | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids |
+| Review | place_id, user_id, text |
 
 ## Examples of using the console in interactive mode:
 
