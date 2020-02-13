@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """ Class BaseModel that defines all common attributes/methods
 for other classes. """
-import datetime from datetime as dt
-import uuid.4 from uuid as uid
+from datetime import datetime as dt
+from uuid import uuid4 as uid
 
 
 class BaseModel:
-    """ Class BaseModel
+    """Class BaseModel
     Public Instance Attributes:
     Id - string assigned with an uuid
     Created-at - datetime assigned with current datetime when created
@@ -14,10 +14,22 @@ class BaseModel:
     """
 
     def __init__(self):
-        """ Constructor for Public Instance Attributes """
+        """Constructor for Public Instance Attributes """
 
         self.id = uid
         self.created_at = dt
         self.updated_at = dt
 
-    
+    def __str__(self):
+        """Prints class name, id, and dict"""
+
+        return ("[{}] ({}) {}".format(type(self).__name__,
+                self.id, self.__dict__))
+
+    @classmethod
+    def save(self):
+        """Updates the public instance attribute 'updated_at with dt'"""
+
+    @classmethod
+    def to_dict(self):
+        """Returns a dict containing all keys/values of __dict__"""
