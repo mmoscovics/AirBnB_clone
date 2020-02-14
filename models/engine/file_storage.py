@@ -31,11 +31,16 @@ class FileStorage:
 
     def reload(self):
         """ Deserializes the JSON file to objects. """
-        from models.base_model import BaseModel
 
         if os.path.exists(type(self).__file_path):
+            from models.base_model import BaseModel
+            from models.user import User
+            from models.state import State
+            from models.city import City
+            from models.amenity import Amenity
+            from models.place import Place
+            from models.review import Review
             with open(type(self).__file_path, 'r') as j_file:
                 dict_obj = json.load(j_file)
-            for key, value in dict_obj.items():
-                class_name = value["__class__"]
-                type(self).__objects[key] = eval(class_name + "(**value)")
+                for key, value in dict_obj.items():
+                    FileStorage.__objects[key] = BaseModel(**value)
