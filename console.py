@@ -24,6 +24,11 @@ class HBNBCommand(cmd.Cmd):
 
         return True
 
+    def emptyline(self):
+        """Passes on an empty line
+        """
+        pass
+
     def do_create(self, arg):
         """Creates a new instance of a class
         Saves it to the JSON file and prints the id
