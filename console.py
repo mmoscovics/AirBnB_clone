@@ -3,6 +3,8 @@
 import cmd
 import sys
 import json
+from models import storage
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -10,6 +12,7 @@ class HBNBCommand(cmd.Cmd):
 
     intro = ""
     prompt = "(hbnb) "
+    class_names = {"BaseModel": BaseModel}
 
     def do_EOF(self, arg):
         """Reads EOF and exits
@@ -29,15 +32,35 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    def do_create(self, arg):
+    def do_create(self, name):
         """Creates a new instance of a class
         Saves it to the JSON file and prints the id
         """
 
-    def do_show(self, arg):
+        if not name:
+            print("** class name missing **")
+        elif name not in type(self).class_names:
+            print("** class doesn't exist **")
+        else:
+            inst = BaseModel()
+            storage.save()
+            print(inst.id)
+
+    def do_show(self, name, class_id):
         """Prints the string representation of an instance
         Based on the class name and id
         """
+
+        if not name and not class_id:
+            print("** class name missing **")
+        elif name not in type(self).class_names:
+            print("** class doesn't exist **")
+        elif not class_id:
+            print("** instance id missing **")
+        elif class_id is not inst.id:
+            print("** no instance found **")
+        else:
+            print(inst)
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id
