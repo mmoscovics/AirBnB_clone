@@ -40,7 +40,10 @@ class FileStorage:
             from models.amenity import Amenity
             from models.place import Place
             from models.review import Review
+            class_names = {"BaseModel": BaseModel,
+                           "User": User}
+
             with open(type(self).__file_path, 'r') as j_file:
                 dict_obj = json.load(j_file)
-                for key, value in dict_obj.items():
-                    FileStorage.__objects[key] = BaseModel(**value)
+                for k, v in dict_obj.items():
+                    FileStorage.__objects[k] = class_names[v["__class__"]](**v)
