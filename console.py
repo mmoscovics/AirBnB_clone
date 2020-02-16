@@ -6,9 +6,15 @@ import json
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
-class_names = {"BaseModel": BaseModel,
-               "User": User}
+class_names = {"BaseModel": BaseModel, "User": User, "State": State,
+               "City": City, "Amenity": Amenity, "Place": Place,
+               "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -101,10 +107,44 @@ class HBNBCommand(cmd.Cmd):
         Based or not on the class name
         """
 
+        if arg:
+            args = arg.split()
+            if not args[0] in class_names:
+                print("** class doesn't exist **")
+                return
+            else:
+                obj = args[0]
+                print(storage.all()[obj])
+                return
+        else:
+            print(storage.all())
+
     def do_update(self, arg):
         """Updates an instance based on the class name and id
         By adding or updating attribute and saves into JSON file
         """
+
+        if not arg:
+            print("** class name missing **")
+            return
+        args = arg.split()
+        if not args[0] in class_names:
+            print("** class doesn't exist **")
+            return
+        elif len(args) < 2:
+            print("** instance id missing **")
+            return
+        elif len(args) < 3:
+            print("** attribute name missing **")
+            return
+        elif len(args) < 4:
+            print("** value missing **")
+            return
+        else:
+            obj = arg[0] + "." + arg[1]
+            type(obj.update({arg[2]: arg[3]}))
+            storage.save()
+            return
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
