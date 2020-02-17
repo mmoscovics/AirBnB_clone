@@ -143,7 +143,8 @@ class HBNBCommand(cmd.Cmd):
             return
         else:
             temp = args[3]
-            temp = temp[1:-1]
+            if temp[0] is '"' and temp[-1] is '"':
+                temp = temp[1:-1]
             obj = args[0] + "." + args[1]
             stor_all[obj].__dict__.update({args[2]: temp})
             storage.save()
