@@ -13,3 +13,23 @@ class TestFileStorage(unittest.TestCase):
         """ Tests class attributes """
 
         pass
+
+    def test_all(self):
+        """ Tests all method """
+
+        pass
+
+    def test_new(self):
+        """ Tests new method """
+
+        pass
+
+    def test_save(self):
+        """ Tests save method """
+
+        pass
+
+    def test_reload(self):
+        """ Tests reload method """
+
+        pass
