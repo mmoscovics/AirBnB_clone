@@ -48,7 +48,7 @@ class FileStorage:
                            "Place": Place,
                            "Review": Review}
 
-            with open(type(self).__file_path, 'r') as j_file:
+            with open(FileStorage.__file_path, 'r') as j_file:
                 dict_obj = json.load(j_file)
                 for k, v in dict_obj.items():
                     FileStorage.__objects[k] = class_names[v["__class__"]](**v)
