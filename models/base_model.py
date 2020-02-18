@@ -13,10 +13,8 @@ class BaseModel:
     Created-at - datetime assigned with current datetime when created
     Updated-at - datetime assigned with current datetime when updated
     """
-
     def __init__(self, *args, **kwargs):
         """Constructor for Public Instance Attributes """
-
         if kwargs and kwargs is not []:
             self.id = kwargs["id"]
             self.created_at = dt.strptime(kwargs["created_at"],
@@ -31,19 +29,16 @@ class BaseModel:
 
     def __str__(self):
         """Prints class name, id, and dict"""
-
         return ("[{}] ({}) {}".format(type(self).__name__,
                 self.id, self.__dict__))
 
     def save(self):
         """Updates the public instance attribute 'updated_at with dt'"""
-
         self.updated_at = dt.now()
         storage.save()
 
     def to_dict(self):
         """Returns a dict containing all keys/values of __dict__"""
-
         new_dict = dict(self.__dict__)
         new_dict['__class__'] = type(self).__name__
         new_dict['created_at'] = self.created_at.isoformat()
