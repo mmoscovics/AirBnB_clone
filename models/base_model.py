@@ -2,6 +2,7 @@
 """ Class BaseModel that defines all common attributes/methods
 for other classes.
 """
+
 from datetime import datetime as dt
 from uuid import uuid4 as uid
 from models import storage
@@ -20,8 +21,7 @@ class BaseModel:
             self.id = kwargs["id"]
             self.created_at = dt.strptime(kwargs["created_at"],
                                           "%Y-%m-%dT%H:%M:%S.%f")
-            self.updated_at = dt.strptime(kwargs["updated_at"],
-                                          "%Y-%m-%dT%H:%M:%S.%f")
+            self.updated_at = self.created_at
         else:
             self.id = str(uid())
             self.created_at = dt.now()
