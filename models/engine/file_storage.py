@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+B#!/usr/bin/python3
 """ Class FileStorage that serializes instances to a JSON file and deserializes
 JSON file to instances. """
 import json
@@ -41,7 +41,12 @@ class FileStorage:
             from models.place import Place
             from models.review import Review
             class_names = {"BaseModel": BaseModel,
-                           "User": User}
+                           "User": User,
+                           "State": State,
+                           "City": City,
+                           "Amenity": Amenity,
+                           "Place": Place,
+                           "Review": Review}
 
             with open(type(self).__file_path, 'r') as j_file:
                 dict_obj = json.load(j_file)
