@@ -66,3 +66,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(obj_dict["created_at"], base.created_at.isoformat())
         self.assertIsInstance(obj_dict["updated_at"], str)
         self.assertEqual(obj_dict["updated_at"], base.updated_at.isoformat())
+
+    def test_save(self):
+        """ Tests save """
+
+        pass
