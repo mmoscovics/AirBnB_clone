@@ -19,6 +19,13 @@ class TestBaseModel(unittest.TestCase):
         self._class = BaseModel
         self._name = "BaseModel"
 
+    def tearDown(self):
+        """Removes file after running save"""
+        try:
+            os.remove("file.JSON")
+        except Exception:
+            pass
+
     def test_id(self):
         """ Test id """
 
