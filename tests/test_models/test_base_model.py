@@ -77,4 +77,13 @@ class TestBaseModel(unittest.TestCase):
     def test_save(self):
         """ Tests save """
 
+        if os.path.exists("file.json"):
+            os.remove("file.json")
+        FileStorage.reload()
+        base = self._class()
+        self.assertTrue(self._name + '.' + base.id in FileStorage.all())
+
+    def test_from_dict(self):
+        """ Tests from dictionary """
+
         pass
