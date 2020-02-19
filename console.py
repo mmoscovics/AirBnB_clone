@@ -29,17 +29,21 @@ class HBNBCommand(cmd.Cmd):
 
         if '.' not in arg:
             return(cmd.Cmd.default(self, arg))
-        print(arg)
         command_class = arg.split('.')
-        print(command_class)
         _class = command_class[0]
         trans = {40: 32, 41: None, 34: None, 44: None}
         commands = (command_class[1].translate(trans)).split(' ')
         command = commands[0]
-        print(commands)
+        command = command.strip()
         if command == "show":
             _id = commands[1]
             self.do_show(_class + ' ' + _id)
+        elif command == "count":
+            count = 0
+            for key in storage.all().keys():
+                if _class == key.split('.')[0]:
+                    count += 1
+            print(count)
         elif command == "destroy":
             _id = commands[1]
             self.do_destroy(_class + ' ' + _id)
