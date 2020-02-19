@@ -48,7 +48,11 @@ class FileStorage:
                            "Place": Place,
                            "Review": Review}
 
-            with open(FileStorage.__file_path, 'r') as j_file:
+            with open(type(self).__file_path, 'r') as j_file:
                 dict_obj = json.load(j_file)
-                for k, v in dict_obj.items():
+            for k, v in dict_obj.items():
+                if v["__class__"] in class_names.keys():
                     FileStorage.__objects[k] = class_names[v["__class__"]](**v)
+                else:
+                    print("** class doesn't exist **")
+                    FileStorage.__objects[k] = None
