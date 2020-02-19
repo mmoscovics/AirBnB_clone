@@ -13,15 +13,17 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         """Removes file after running save"""
         try:
-            os.remove("file.JSON")
+            os.remove("file.json")
         except Exception:
             pass
 
     def test_attributes(self):
         """ Tests class attributes """
         self._class = FileStorage
-        self.assertFalse(os.path.exists("file.JSON"))
-        self.assertIsInstance(type(self.all()), dict)
+        self._name = "FileStorage"
+        base = self._class()
+        self.assertFalse(os.path.exists("file.json"))
+        self.assertIsInstance(base.all(), dict)
 
     def test_all(self):
         """ Tests all method """
