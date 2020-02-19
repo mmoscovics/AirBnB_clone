@@ -23,6 +23,43 @@ class HBNBCommand(cmd.Cmd):
     intro = ""
     prompt = "(hbnb) "
 
+    def default(self, arg):
+        """Breaks down argument to be passed to other commands
+        """
+
+        if '.' not in arg:
+            return(cmd.Cmd.default(self, arg))
+        print(arg)
+        command_class = arg.split('.')
+        print(command_class)
+        _class = command_class[0]
+        trans = {40: 32, 41: None, 34: None, 44: None}
+        commands = (command_class[1].translate(trans)).split(' ')
+        command = commands[0]
+        print(commands)
+        if command == "show":
+            _id = commands[1]
+            self.do_show(_class + ' ' + _id)
+        elif command == "destroy":
+            _id = commands[1]
+            self.do_destroy(_class + ' ' + _id)
+        elif command == "all":
+            self.do_all(_class)
+        elif command == "update":
+            if len(commands) < 2:
+                print("** instance id missing **")
+                return
+            elif len(commands) < 3:
+                print("** attribute name missing **")
+                return
+            elif len(commands) < 4:
+                print("** value missing **")
+                return
+            _id = commands[1]
+            key = commands[2]
+            val = commands[3]
+            self.do_update(_class + ' ' + _id + ' ' + key + ' ' + val)
+
     def do_EOF(self, arg):
         """Reads EOF and exits
         """
@@ -108,14 +145,13 @@ class HBNBCommand(cmd.Cmd):
         """
 
         if arg:
-            args = arg.split()
-            if not args[0] in class_names:
+            if not arg in class_names:
                 print("** class doesn't exist **")
                 return
             else:
-                obj = args[0]
-                print(storage.all()[obj])
-                return
+                for key in storage.all():
+                    if arg == key.split('.')[0]:
+                        print(storage.all()[key])
         else:
             print(storage.all())
 
