@@ -32,7 +32,7 @@ class FileStorage:
     def reload(self):
         """ Deserializes the JSON file to objects. """
 
-        if os.path.exists(type(self).__file_path):
+        if os.path.exists(FileStorage.__file_path):
             from models.base_model import BaseModel
             from models.user import User
             from models.state import State
