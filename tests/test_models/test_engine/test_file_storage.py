@@ -19,9 +19,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_attributes(self):
         """ Tests class attributes """
-        base = self._class()
-        self.assertIsInstance(base.__file_path, str)
-        self.assertIsInstance(base.__objects, dict)
+
+        pass
 
     def test_all(self):
         """ Tests all method """
